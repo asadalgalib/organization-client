@@ -10,10 +10,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { ToggleButton } from '@mui/material';
 import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import useTheme from '../Hooks/useTheme';
 import { IoMoon, IoSunnySharp } from 'react-icons/io5';
+import logo from '../assets/icons8-earth-planet-64.png'
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
@@ -25,6 +25,10 @@ export default function TemporaryDrawer() {
 
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+      <div className='h-[64px] bg-primary pl-4 flex items-center justify-start gap-2'>
+        <img src={logo} className='w-10 h-10' alt="logo" />
+        <h1 className='text-white font-medium uppercase'>Green pulse</h1>
+      </div>
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem key={text} disablePadding>
@@ -51,7 +55,7 @@ export default function TemporaryDrawer() {
         ))}
       </List>
       <div>
-          <button className={`w-40 ml-4 rounded lg:flex items-center justify-center py-2 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'} font-medium`} onClick={controlTheme}>
+          <button className={`w-full border-t border-b pl-4 flex items-center justify-start py-2 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'} font-medium`} onClick={controlTheme}>
             {
               theme === 'dark' ? <p className='flex items-center gap-2'> Dark Mood <IoMoon className='text-2xl text-yellow-400 ' /></p> :
                 <p className='flex items-center gap-2'> Light Mood <IoSunnySharp className='text-2xl text-yellow-400 ' /></p>

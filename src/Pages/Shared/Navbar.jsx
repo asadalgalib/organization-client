@@ -10,7 +10,7 @@ const Navbar = () => {
     const { theme, controlTheme } = useTheme();
 
     return (
-        <div className='bg-primary'>
+        <div className='fixed top-0 z-50 bg-black bg-opacity-30 w-full'>
             <div className='lg:px-20 px-4 flex items-center justify-between'>
                 <div className='flex justify-start items-center gap-8'>
                     <div>
@@ -30,17 +30,17 @@ const Navbar = () => {
                     
 
                 </div>
-                <div className='flex items-center gap-3 py-3'>
-                    <button className={`w-40 hidden rounded lg:flex items-center justify-center py-2 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'} font-medium`} onClick={controlTheme}>
+                <div className='flex items-center gap-3 py-2'>
+                    <button className={`w-40 hidden rounded lg:flex items-center justify-center py-[5px] ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'} font-medium`} onClick={controlTheme}>
                         {
                             theme === 'dark' ? <p className='flex items-center gap-2'> Dark Mood <IoMoon className='text-2xl text-yellow-400 ' /></p> :
                                 <p className='flex items-center gap-2'> Light Mood <IoSunnySharp className='text-2xl text-yellow-400 ' /></p>
                         }
                     </button>
-                    <div className='flex items-center gap-3 '>
-                        <button className='px-6 py-2 bg-accent rounded text-white font-medium flex items-center gap-1'>Donate <BiPlus></BiPlus></button>
+                    <div className='flex items-center gap-2 '>
+                        <button className='px-6 py-[5px] bg-accent rounded text-white font-medium flex items-center gap-1'>Donate <BiPlus></BiPlus></button>
                         <div>
-                            <button className='px-6 py-2 bg-accent rounded text-white font-medium'>Login</button>
+                            <button className='px-6 py-[5px] bg-accent rounded text-white font-medium'>Login</button>
                         </div>
                     </div>
                 </div>
