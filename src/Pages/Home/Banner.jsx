@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
-        <div className='h-auto lg:h-[640px] flex items-center'>
+        <div className='h-[70vh] lg:h-[90vh] flex items-center'>
             <Swiper
                 scrollbar={{
                     hide: true,
@@ -17,8 +17,8 @@ const Banner = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className="bg-slide1 px-4 py-8 lg:py-32 lg:px-32 bg-cover bg-center">
-                        <div className="flex items-center justify-end gap-10 h-[50vh] lg:h-[70vh]">
+                    <div className="bg-slide1 flex items-center justify-center lg:justify-end px-4 h-[70vh] lg:h-[90vh] lg:px-32 bg-cover bg-center">
+                        <div className="flex items-center justify-center lg:justify-end gap-10">
                             <div className='flex-1 p-5 lg:p-10 max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded bg-black bg-opacity-45 text-white'>
                                 <h1 className='text-2xl lg:text-4xl font-semibold max-w-lg text-white'>Try and leave this world a little better than you found it.</h1>
                                 <p className='text-lg lg:text-xl font-semibold'><i>- Lord Baden-Powell</i></p>
@@ -30,8 +30,8 @@ const Banner = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="bg-slide2 px-4 py-8 lg:py-32 lg:px-32 bg-cover bg-center">
-                        <div className="flex items-center justify-start gap-10 h-[50vh] lg:h-[70vh]">
+                    <div className="bg-slide2 flex items-center justify-center lg:justify-start px-4 h-[70vh] lg:h-[90vh] lg:px-32 bg-cover bg-center">
+                        <div className="flex items-center justify-center lg:justify-start gap-10">
                             <div className='flex-1 p-5 lg:p-10 max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded bg-black bg-opacity-45 text-white'>
                                 <h1 className='text-2xl lg:text-4xl font-semibold max-w-lg text-white'>The greatest threat to our planet is the belief that someone else will save it.</h1>
                                 <p className='text-lg lg:text-xl font-semibold'><i>- Robert Swan</i></p>
@@ -43,8 +43,8 @@ const Banner = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="bg-slide3 px-4 py-8 lg:py-32 lg:px-32 bg-cover bg-center">
-                        <div className="flex items-center justify-end gap-10 h-[50vh] lg:h-[70vh]">
+                    <div className="bg-slide3 flex items-center justify-center lg:justify-end px-4 h-[70vh] lg:h-[90vh] lg:px-32 bg-cover bg-center">
+                        <div className="flex items-center justify-center lg:justify-end gap-10">
                         <div className='flex-1 p-5 lg:p-10 max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded bg-black bg-opacity-45 text-white'>
                                 <h1 className='text-2xl lg:text-4xl font-semibold max-w-lg text-white'>We do not inherit the earth from our ancestors; we borrow it from our children.</h1>
                                 <p className='text-lg lg:text-xl font-semibold'><i>- Native American Proverb</i></p>
@@ -56,8 +56,8 @@ const Banner = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="bg-slide4 px-4 py-8 lg:py-32 lg:px-32 bg-cover bg-center">
-                        <div className="flex items-center justify-start gap-10 h-[50vh] lg:h-[70vh]">
+                    <div className="bg-slide4 flex items-center justify-center lg:justify-start px-4 h-[70vh] lg:h-[90vh] lg:px-32 bg-cover bg-center">
+                        <div className="flex items-center justify-center lg:justify-start gap-10">
                         <div className='flex-1 p-5 lg:p-10 max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded bg-black bg-opacity-45 text-white'>
                                 <h1 className='text-2xl lg:text-4xl font-semibold max-w-lg text-white'>What we do today, right now, will have an accumulated effect on all our tomorrows.</h1>
                                 <p className='text-lg lg:text-xl font-semibold'><i>- Alexandra Stoddard</i></p>
