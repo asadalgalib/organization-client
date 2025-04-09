@@ -13,14 +13,44 @@ import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import useTheme from '../Hooks/useTheme';
 import { IoMoon, IoSunnySharp } from 'react-icons/io5';
 import logo from '../assets/icons8-earth-planet-64.png'
+import { useNavigate } from 'react-router-dom';
+import { ContactMail, Event, Home, Info } from '@mui/icons-material';
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
   const { theme, controlTheme } = useTheme();
+  const navigate = useNavigate()
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
+
+  const routes = [
+    {
+      id: 1,
+      text: 'Home',
+      path: '/',
+      icon: <Home />
+    },
+    {
+      id: 2,
+      text: 'Events',
+      path: '/events',
+      icon: <Event />
+    },
+    {
+      id: 3,
+      text: 'About Us',
+      path: '/about',
+      icon: <Info />
+    },
+    {
+      id: 4,
+      text: 'Contact',
+      path: '/contact',
+      icon: <ContactMail />
+    },
+  ];
 
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
@@ -29,38 +59,26 @@ export default function TemporaryDrawer() {
         <h1 className='text-white font-medium uppercase'>Green pulse</h1>
       </div>
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
+        {routes.map((route) => (
+          <ListItem key={route.id} disablePadding>
+            <ListItemButton onClick={()=>navigate(route.path)}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {route.icon}
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={route.text} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
       <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
       <div>
-          <button className={`w-full border-t border-b pl-4 flex items-center justify-start py-2 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'} font-medium`} onClick={controlTheme}>
-            {
-              theme === 'dark' ? <p className='flex items-center gap-2'> Dark Mood <IoMoon className='text-2xl text-yellow-400 ' /></p> :
-                <p className='flex items-center gap-2'> Light Mood <IoSunnySharp className='text-2xl text-yellow-400 ' /></p>
-            }
-          </button>
-        </div>
+        <button className={`w-full border-t border-b pl-4 flex items-center justify-start py-2 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'} font-medium`} onClick={controlTheme}>
+          {
+            theme === 'dark' ? <p className='flex items-center gap-2'> Dark Mood <IoMoon className='text-2xl text-yellow-400 ' /></p> :
+              <p className='flex items-center gap-2'> Light Mood <IoSunnySharp className='text-2xl text-yellow-400 ' /></p>
+          }
+        </button>
+      </div>
     </Box>
   );
 

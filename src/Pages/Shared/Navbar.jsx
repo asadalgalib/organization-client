@@ -1,16 +1,19 @@
 import React from 'react';
 import TemporaryDrawer from '../../Components/TemporaryDrawer';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useTheme from '../../Hooks/useTheme';
 import { IoMoon, IoSunnySharp } from 'react-icons/io5';
 import logo from '../../assets/icons8-earth-planet-64.png'
 import { BiPlus } from 'react-icons/bi';
+import useAuth from '../../Hooks/useAuth';
+import AccountMenu from '../../Components/AccountMenu';
 
 const Navbar = () => {
     const { theme, controlTheme } = useTheme();
+    const { user, logOutUser } = useAuth()
 
     return (
-        <div className='fixed top-0 z-50 bg-darkbg bg-opacity-50 w-full'>
+        <div className=' top-0 z-50 bg-darkbg bg-opacity-50 w-full'>
             <div className='lg:px-20 px-4 flex items-center justify-between'>
                 <div className='flex justify-start items-center gap-8'>
                     <div>
@@ -27,7 +30,7 @@ const Navbar = () => {
                             <NavLink className='pt-6 pb-4 px-4 border-b-8 border-transparent hover:border-accent'><li>Contact</li></NavLink>
                         </ul>
                     </div>
-                    
+
 
                 </div>
                 <div className='flex items-center gap-3 py-2'>
@@ -40,7 +43,14 @@ const Navbar = () => {
                     <div className='flex items-center gap-2 '>
                         <button className='px-6 py-[5px] bg-accent rounded text-white font-medium flex items-center gap-1'>Donate <BiPlus></BiPlus></button>
                         <div>
-                            <button className='px-6 py-[5px] bg-primary rounded text-white font-medium'>Login</button>
+                            {
+                                user ?
+                                    <AccountMenu />
+                                    :
+                                    <Link to={'/login'}>
+                                        <button className='px-6 py-[5px] bg-primary rounded text-white font-medium'>Login</button>
+                                    </Link>
+                            }
                         </div>
                     </div>
                 </div>

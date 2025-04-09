@@ -18,7 +18,7 @@ import wild from '../../assets/wild.jpg'
 
 const HowWeWork = () => {
     return (
-        <div className='xl:px-20 lg:px-12 pb-2 lg:pb-10 md:px-10 px-4'>
+        <div className='xl:px-20 lg:px-12 pb-12 lg:pb-20 md:px-10 px-4'>
             <div>
                 <h1 className='text-2xl lg:text-3xl xl:text-5xl font-semibold text-black dark:text-white'>How we work</h1>
                 <p className='max-w-5xl text-left mt-2 text-black dark:text-white'>We are committed to creating a sustainable future where nature and people thrive together. Through education, advocacy, and action, we address the urgent environmental challenges of our time. Our efforts focus on raising awareness, driving change, and inspiring individuals and communities to take meaningful steps toward a greener planet.</p>
