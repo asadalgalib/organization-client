@@ -33,7 +33,7 @@ const Navbar = () => {
 
 
                 </div>
-                <div className='flex items-center gap-3 py-2'>
+                <div className='flex items-center gap-2 py-2'>
                     <button className={`w-40 hidden rounded lg:flex items-center justify-center py-[5px] ${theme === 'dark' ? 'bg-darkbg text-white' : 'bg-lightbg text-black'} font-medium`} onClick={controlTheme}>
                         {
                             theme === 'dark' ? <p className='flex items-center gap-2'> Dark Mood <IoMoon className='text-2xl text-yellow-400 ' /></p> :
