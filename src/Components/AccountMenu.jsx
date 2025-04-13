@@ -6,19 +6,19 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import useAuth from '../Hooks/useAuth';
 import { Dashboard } from '@mui/icons-material';
 import Swal from 'sweetalert2';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function AccountMenu() {
     const { user, logOutUser } = useAuth()
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+    const location = useLocation();
+    console.log(location.pathname);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -50,12 +50,13 @@ export default function AccountMenu() {
 
     return (
         <React.Fragment>
-            <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}
+            >
                 <Tooltip title="Account settings">
                     <IconButton
                         onClick={handleClick}
                         size="small"
-                        sx={{ ml: 2 }}
+                        sx={{ ml: 1 }}
                         aria-controls={open ? 'account-menu' : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
@@ -79,6 +80,12 @@ export default function AccountMenu() {
                             overflow: 'visible',
                             filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
                             mt: 1.5,
+                            bgcolor: () =>
+                                document.documentElement.classList.contains('dark')
+                                && '#131618',
+                            color: () =>
+                                document.documentElement.classList.contains('dark')
+                                && '#fff',
                             '& .MuiAvatar-root': {
                                 width: 32,
                                 height: 32,
@@ -104,24 +111,25 @@ export default function AccountMenu() {
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
                 <MenuItem onClick={handleClose}>
-                    <Avatar></Avatar> {user.displayName}
+                    <Avatar sx={{ width: 24, height: 24 }}>
+                        <img src={user?.photoURL} alt="" />
+                    </Avatar> <span className='ml-2'>My Profile</span>
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={handleClose}>
-                    <ListItemIcon>
-                        <Dashboard fontSize="small" />
-                    </ListItemIcon>
-                    Dashboard
-                </MenuItem>
-                <MenuItem onClick={handleClose}>
-                    <ListItemIcon>
-                        <Settings fontSize="small" />
-                    </ListItemIcon>
-                    Settings
-                </MenuItem>
+                {
+                    location.pathname !== '/dashboard' &&
+                    <Link to={'/dashboard/admin/user'}>
+                        <MenuItem onClick={handleClose}>
+                            <ListItemIcon>
+                                <Dashboard fontSize="small" className='dark:text-white' />
+                            </ListItemIcon>
+                            Dashboard
+                        </MenuItem>
+                    </Link>
+                }
                 <MenuItem onClick={handleLogout}>
                     <ListItemIcon>
-                        <Logout fontSize="small" />
+                        <Logout fontSize="small" className='dark:text-white' />
                     </ListItemIcon>
                     Logout
                 </MenuItem>

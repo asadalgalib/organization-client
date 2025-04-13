@@ -10,7 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
-import useTheme from '../Hooks/useTheme';
+import useCustomTheme from '../Hooks/useCustomTheme';
 import { IoMoon, IoSunnySharp } from 'react-icons/io5';
 import logo from '../assets/icons8-earth-planet-64.png'
 import { useNavigate } from 'react-router-dom';
@@ -18,7 +18,7 @@ import { ContactMail, Event, Home, Info } from '@mui/icons-material';
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
-  const { theme, controlTheme } = useTheme();
+  const { theme, controlTheme } = useCustomTheme();
   const navigate = useNavigate()
 
   const toggleDrawer = (newOpen) => () => {
@@ -53,7 +53,7 @@ export default function TemporaryDrawer() {
   ];
 
   const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box sx={{ width: 250 }} className='dark:bg-drawerDarkBg dark:text-white h-full' role="presentation" onClick={toggleDrawer(false)}>
       <div className='h-[64px] bg-primary pl-4 flex items-center justify-start gap-2'>
         <img src={logo} className='w-10 h-10' alt="logo" />
         <h1 className='text-white font-medium uppercase'>Green pulse</h1>
@@ -62,7 +62,7 @@ export default function TemporaryDrawer() {
         {routes.map((route) => (
           <ListItem key={route.id} disablePadding>
             <ListItemButton onClick={()=>navigate(route.path)}>
-              <ListItemIcon>
+              <ListItemIcon className='dark:text-white'>
                 {route.icon}
               </ListItemIcon>
               <ListItemText primary={route.text} />
@@ -85,7 +85,7 @@ export default function TemporaryDrawer() {
   return (
     <div>
       <button onClick={toggleDrawer(true)}>
-        <FormatAlignLeftIcon style={{ fontSize: "32px" }} className='text-white' />
+        <FormatAlignLeftIcon style={{ fontSize: "32px" }} className='dark:text-white text-black' />
       </button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}

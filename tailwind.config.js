@@ -12,6 +12,7 @@ export default {
         accent : '#4759d5',
         lightbg : '#fbfaf9',
         darkbg : '#060504',
+        drawerDarkBg : '#131618'
       },
       backgroundImage : {
         slide1 : "url('/src/assets/one.jpg')",

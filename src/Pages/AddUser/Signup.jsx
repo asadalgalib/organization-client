@@ -3,7 +3,7 @@ import { Button, FormControl, IconButton, InputAdornment, InputLabel, OutlinedIn
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import useTheme from '../../Hooks/useTheme';
+import useCustomTheme from '../../Hooks/useCustomTheme';
 import { styled } from '@mui/material/styles';
 import axios from 'axios';
 import useAuth from '../../Hooks/useAuth';
@@ -21,7 +21,7 @@ const Signup = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [uploadedPhoto, setUploadedPhoto] = useState('');
     const [photoError, setPhotoError] = useState(false);
-    const { theme } = useTheme();
+    const { theme } = useCustomTheme();
     let authorImage;
     const navigate = useNavigate();
     const axiosPublic = useAxiosPublic()

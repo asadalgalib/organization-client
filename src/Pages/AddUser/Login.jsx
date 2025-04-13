@@ -3,7 +3,7 @@ import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } fr
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import useTheme from '../../Hooks/useTheme';
+import useCustomTheme from '../../Hooks/useCustomTheme';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 import useAuth from '../../Hooks/useAuth';
@@ -13,7 +13,7 @@ const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [showPassword, setShowPassword] = useState(false);
     const {user,logInUser} = useAuth()
-    const { theme } = useTheme();
+    const { theme } = useCustomTheme();
     const navigate = useNavigate();
 
     const onSubmit = (userData) => {
