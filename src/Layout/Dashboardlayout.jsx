@@ -109,31 +109,31 @@ const adminRoutes = [
     {
         id: 1,
         text: 'Stats',
-        path: '/stats',
+        path: '/dashboard/admin/stats',
         icon: <BiStats className='text-2xl' />
     },
     {
         id: 2,
         text: 'Add Event',
-        path: '/addevents',
+        path: '/dashboard/admin/addevents',
         icon: <Event />
     },
     {
         id: 3,
         text: 'All Events',
-        path: '/addevents',
+        path: '/dashboard/admin/allevents',
         icon: <ListAlt />
     },
     {
         id: 4,
         text: 'Donors',
-        path: '/donor',
+        path: '/dashboard/admin/donor',
         icon: <WalletSharp />
     },
     {
         id: 5,
         text: 'Volunteers',
-        path: '/contact',
+        path: '/dashboard/admin/volunteer',
         icon: <VolunteerActivism />
     },
     {

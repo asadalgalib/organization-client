@@ -20,7 +20,7 @@ const Signup = () => {
     const { createUser, updateUserProfile, logOutUser, user, setUser } = useAuth();
     const [showPassword, setShowPassword] = useState(false);
     const [uploadedPhoto, setUploadedPhoto] = useState('');
-    const [photoError, setPhotoError] = useState(false);
+    const [photoError, setPhotoError] = useState(true);
     const { theme } = useCustomTheme();
     let authorImage;
     const navigate = useNavigate();
@@ -45,7 +45,6 @@ const Signup = () => {
 
         if (uploadedPhoto.length > 0) {
             const imageFile = { image: uploadedPhoto[0] }
-            console.log(imageFile);
             const res = await axios.post(image_hosting_api, imageFile, {
                 headers: {
                     'content-type': 'multipart/form-data'

@@ -118,7 +118,7 @@ export default function AccountMenu() {
                 <Divider />
                 {
                     location.pathname !== '/dashboard' &&
-                    <Link to={'/dashboard/admin/user'}>
+                    <Link to={'/dashboard/admin/stats'}>
                         <MenuItem onClick={handleClose}>
                             <ListItemIcon>
                                 <Dashboard fontSize="small" className='dark:text-white' />

@@ -4,7 +4,8 @@ const axiosInstance = axios.create({
     baseURL: "http://localhost:5000"
 })
 
-// https://organization-server.vercel.app/
+// https://organization-server.vercel.app
+// http://localhost:5000
 
 const useAxiosPublic = () => {
     return axiosInstance;
